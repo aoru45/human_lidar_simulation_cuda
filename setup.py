@@ -23,7 +23,7 @@ except NameError:
     FileNotFoundError = IOError
 about = {}
 about['__version__'] = VERSION
-
+os.environ["TORCH_CUDA_ARCH_LIST"] = "3.7+PTX;5.0;6.0;6.1;6.2;7.0;7.5"
 src_files = ['src/bvh.cpp', 'src/bvh_cuda_op.cu', "src/sampling.cpp", "src/sampling_gpu.cu", "src/bindings.cpp"]
 include_dirs = torch.utils.cpp_extension.include_paths() + [
     osp.join(here, 'include'),
